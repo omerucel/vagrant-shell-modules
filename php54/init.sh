@@ -1,6 +1,6 @@
 #! /bin/bash
 
-yum --enablerepo=remi install -y php php-pear php-pecl-xdebug php-pecl-xhprof php-mysql php-pecl-mongo php-redis php-pecl-memcached
+yum --enablerepo=remi install -y php php-pear php-pecl-xdebug php-pecl-xhprof php-mysql php-pecl-mongo php-redis php-pecl-memcached php-xml
 
 if [ ! -f /usr/local/bin/composer ]
 then
