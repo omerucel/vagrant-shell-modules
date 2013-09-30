@@ -11,7 +11,7 @@ fi
 if [ ! -L /etc/php-fpm.d/www.conf ]
 then
 	rm -f /etc/php-fpm.d/www.conf
-	ln -s /vagrant/vagrant/modules/php54/files/www.conf /etc/php-fpm.d/www.conf
+	ln -s "${SHELL_SCRIPT_MODULE_PATH}/php54/files/www.conf" /etc/php-fpm.d/www.conf
 fi
 
 service php-fpm restart

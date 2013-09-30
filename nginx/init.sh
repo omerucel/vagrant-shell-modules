@@ -4,7 +4,7 @@ rpm -qa | grep -q nginx || yum --enablerepo=remi install -y nginx
 
 if [ ! -f /etc/nginx/conf.d/vhost.conf ]
 then
-	ln -s /vagrant/vagrant/modules/nginx/files/vhost.conf /etc/nginx/conf.d/vhost.conf
+	ln -s "${SHELL_SCRIPT_MODULE_PATH}/nginx/files/vhost.conf" /etc/nginx/conf.d/vhost.conf
 fi
 
 if [ -f /etc/nginx/conf.d/default.conf ]
