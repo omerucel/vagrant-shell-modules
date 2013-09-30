@@ -1,6 +1,6 @@
 #! /bin/bash
 
-rpm -qa | grep -q nginx || yum --enablerepo=remi install -y nginx
+yum --enablerepo=remi install -y nginx
 
 if [ ! -f /etc/nginx/conf.d/vhost.conf ]
 then

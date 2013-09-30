@@ -1,6 +1,6 @@
 #! /bin/bash
 
-rpm -qa | grep -q mysql-server || yum install -y mysql-server
+yum install -y mysql-server
 
 chkconfig mysqld off
 

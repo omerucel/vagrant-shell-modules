@@ -1,6 +1,6 @@
 #! /bin/bash
 
-yum grouplist "Development tools" | grep -c "Installed Groups" || yum -y groupinstall "Development tools" 
+yum -y groupinstall "Development tools" 
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel
 
 if [ ! -f /usr/local/bin/python2.7 ]
