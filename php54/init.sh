@@ -14,4 +14,13 @@ then
 	ln -s "${SHELL_SCRIPT_MODULE_PATH}/php54/files/www.conf" /etc/php-fpm.d/www.conf
 fi
 
+if [[ ! -z "$XDEBUG_REMOTE_DEBUGGING" ]]
+then
+    if [ ! -L /etc/php.d/xdebug.ini ]
+    then
+        mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.bak
+        ln -s "${SHELL_SCRIPT_MODULE_PATH}/php54/files/xdebug.ini" /etc/php.d/xdebug.ini
+    fi
+fi
+
 service php-fpm restart
