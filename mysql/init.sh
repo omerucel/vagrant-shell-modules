@@ -1,6 +1,6 @@
 #! /bin/bash
 
-yum install -y mysql-server
+yum install -y mysql-server mysql-devel
 
 service mysqld stop
 cp -f "${SHELL_SCRIPT_MODULE_PATH}/mysql/files/my.cnf" /etc/my.cnf

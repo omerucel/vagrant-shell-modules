@@ -33,3 +33,8 @@ fi
 
 /usr/local/bin/easy_install-2.7 virtualenv
 /usr/local/bin/easy_install-3.3 virtualenv
+
+/usr/local/bin/easy_install-2.7 pip
+/usr/local/bin/easy_install-3.3 pip
+
+/usr/local/bin/virtualenv-2.7 --distribute /home/vagrant/vagrantenv
