@@ -1,6 +1,7 @@
 #! /bin/bash
 
-yum --enablerepo=remi install -y php php-pear php-pecl-xdebug php-pecl-xhprof php-mysql php-pecl-mongo php-redis php-pecl-memcached php-xml php-gd php-mbstring php-mcrypt php-fpm
+yum --enablerepo=remi install -y gearmand
+yum --enablerepo=remi install -y php php-pear php-pecl-xdebug php-pecl-xhprof php-mysql php-pecl-mongo php-redis php-pecl-memcached php-xml php-gd php-mbstring php-mcrypt php-fpm php-gearman
 
 if [ ! -f /usr/local/bin/composer ]
 then
