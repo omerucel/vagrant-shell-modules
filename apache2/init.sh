@@ -3,6 +3,7 @@
 apt-get install -y apache2
 a2enmod rewrite
 
+rm -f /etc/apache2/conf.d/fqdn
 rm -f /etc/apache2/sites-enabled/000-default
 
 if [ -z ${APACHE_VHOST_FILE} ]
@@ -11,5 +12,7 @@ then
 else
     cp -f "${APACHE_VHOST_FILE}" /etc/apache2/sites-enabled/vhost.conf
 fi
+
+echo "ServerName localhost" | tee /etc/apache2/conf.d/fqdn
 
 service apache2 restart
