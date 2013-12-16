@@ -1,17 +1,19 @@
 #! /bin/bash
 
-yum install -y mysql-server mysql-devel
-chkconfig mysqld on
+echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 
-service mysqld stop
+apt-get -y install mysql-server
 
-if [[ -z "$MYSQL_CONF_FILE" ]]
+service mysql stop
+
+if [ -z ${MYSQL_CONF_FILE} ]
 then
-    cp -f "${SHELL_SCRIPT_MODULE_PATH}/mysql/files/my.cnf" /etc/my.cnf
+    cp -f "${SHELL_SCRIPT_MODULE_PATH}/mysql/files/custom.cnf" /etc/mysql/conf.d/custom.cnf
 else
-    cp -f "${MYSQL_CONF_FILE}" /etc/my.cnf
+    cp -f "${MYSQL_CONF_FILE}" /etc/mysql/conf.d/custom.cnf
 fi
 
-service mysqld start
+service mysql start
 
-mysql -u root -e "GRANT ALL ON *.* TO root@'%' IDENTIFIED BY '' WITH GRANT OPTION;"
+mysql -u root --password="root" -e "GRANT ALL ON *.* TO root@'%' IDENTIFIED BY '' WITH GRANT OPTION;"
