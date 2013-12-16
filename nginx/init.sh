@@ -2,24 +2,16 @@
 
 yum --enablerepo=remi install -y nginx
 
-if [ ! -f /etc/nginx/conf.d/vhost.conf ]
-then
-    if [[ -z "$NGINX_VHOST_FILE" ]]
-    then
-        ln -s "${SHELL_SCRIPT_MODULE_PATH}/nginx/files/vhost.conf" /etc/nginx/conf.d/vhost.conf
-    else
-        ln -s "${NGINX_VHOST_FILE}" /etc/nginx/conf.d/vhost.conf
-    fi
-fi
+chkconfig nginx on
 
-if [ -f /etc/nginx/conf.d/default.conf ]
-then
-	rm -f /etc/nginx/conf.d/default.conf
-fi
+rm -f /etc/nginx/conf.d/default.conf
+rm -f /etc/nginx/conf.d/virtual.conf
 
-if [ -f /etc/nginx/conf.d/virtual.conf ]
+if [[ -z "$NGINX_VHOST_FILE" ]]
 then
-	rm -f /etc/nginx/conf.d/virtual.conf
+    cp -f "${SHELL_SCRIPT_MODULE_PATH}/nginx/files/vhost.conf" /etc/nginx/conf.d/vhost.conf
+else
+    cp -f "${NGINX_VHOST_FILE}" /etc/nginx/conf.d/vhost.conf
 fi
 
 service nginx restart

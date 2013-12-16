@@ -12,4 +12,6 @@ fi
 yum install -y mongo10-gen
 yum install -y mongo-10gen-server
 
+chkconfig mongod on
+
 service mongod restart
