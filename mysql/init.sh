@@ -17,3 +17,4 @@ fi
 service mysql start
 
 mysql -u root --password="root" -e "GRANT ALL ON *.* TO root@'%' IDENTIFIED BY '' WITH GRANT OPTION;"
+mysql -u root --password="root" -e "GRANT ALL ON *.* TO root@'localhost' IDENTIFIED BY '' WITH GRANT OPTION;"
