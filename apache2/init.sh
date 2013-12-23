@@ -14,5 +14,4 @@ else
 fi
 
 echo "ServerName localhost" | tee /etc/apache2/conf.d/fqdn
-
 service apache2 restart
