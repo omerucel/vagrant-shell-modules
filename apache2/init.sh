@@ -13,5 +13,4 @@ else
     cp -f "${APACHE_VHOST_FILE}" /etc/apache2/sites-enabled/vhost.conf
 fi
 
-echo "ServerName localhost" | tee /etc/apache2/conf.d/fqdn
 service apache2 restart
